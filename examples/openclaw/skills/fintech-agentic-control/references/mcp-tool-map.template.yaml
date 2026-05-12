@@ -1,21 +1,311 @@
-# Fill this before live execution.
-# left: declarative tool in agentic-skills
-# right: concrete MCP/tool endpoint in your runtime
-
-transaction_lookup: ""
-transaction_status_check: ""
-transaction_trace: ""
-settlement_status_query: ""
-bank_confirmation_check: ""
-ledger_reconciliation_check: ""
-search_transactions: ""
-
-kyc_lookup: ""
-kyc_case_update: ""
-fraud_case_lookup: ""
-fraud_flag_account: ""
-crm_create_ticket: ""
-crm_add_note: ""
-collections_schedule_followup: ""
-
-# Add the rest as needed from each agents/*/tools.yaml
+meta:
+  generated_from: agentic-skills agents/*/tools.yaml + openclaw-runtime/mcp_registry.yaml
+  generated_at_utc: '2026-05-12T18:02:10.640598Z'
+  total_unique_tools: 87
+  mapped_tools: 87
+  unmapped_tools: 0
+services:
+  payments-mcp: http://payments-mcp:8091
+  ticketing-mcp: http://ticketing-mcp:8092
+  crm-mcp: http://crm-mcp:8093
+  kyc-mcp: http://kyc-mcp:8094
+  fraud-mcp: http://fraud-mcp:8095
+  notification-mcp: http://notification-mcp:8096
+  escalation-mcp: http://escalation-mcp:8097
+  rag-mcp: http://rag-mcp:8098
+  onboarding-mcp: http://onboarding-mcp:8099
+  collections-mcp: http://collections-mcp:8100
+  compliance-mcp: http://compliance-mcp:8101
+tool_to_service:
+  account_freeze: fraud-mcp
+  account_restriction_apply: collections-mcp
+  account_security_actions: fraud-mcp
+  account_status_lookup: onboarding-mcp
+  activation_status_check: onboarding-mcp
+  append_complaint_note: ticketing-mcp
+  assign_support_queue: ticketing-mcp
+  bank_confirmation_check: payments-mcp
+  behavior_analysis_query: fraud-mcp
+  classify_complaint: ticketing-mcp
+  compliance_case_create: compliance-mcp
+  compliance_report_generate: compliance-mcp
+  create_complaint_ticket: ticketing-mcp
+  create_human_ticket: escalation-mcp
+  crm_sync: crm-mcp
+  crm_tag_customer: crm-mcp
+  crm_update: crm-mcp
+  crm_upsert_note: crm-mcp
+  customer_history_fetch: crm-mcp
+  customer_profile_update: crm-mcp
+  customer_tag_update: crm-mcp
+  debt_status_check: collections-mcp
+  device_fingerprint_check: fraud-mcp
+  document_verification: kyc-mcp
+  escalation_log_create: escalation-mcp
+  face_match_check: kyc-mcp
+  faq_lookup: rag-mcp
+  fee_breakdown: payments-mcp
+  first_action_track: onboarding-mcp
+  fraud_alarm_raise: fraud-mcp
+  fraud_case_create: fraud-mcp
+  get_transaction_status: payments-mcp
+  identity_lookup: kyc-mcp
+  incident_report_generate: escalation-mcp
+  incident_status_lookup: escalation-mcp
+  interaction_log_write: crm-mcp
+  knowledge_base_query: rag-mcp
+  knowledge_search: rag-mcp
+  kyc_resubmit_request: kyc-mcp
+  kyc_status_lookup: kyc-mcp
+  kyc_status_update: kyc-mcp
+  kyc_verification_status: kyc-mcp
+  ledger_reconciliation_check: payments-mcp
+  ledger_trace: payments-mcp
+  liveness_detection: kyc-mcp
+  notification_send: notification-mcp
+  notify_team_slack: notification-mcp
+  onboarding_resend_link: onboarding-mcp
+  onboarding_step_update: onboarding-mcp
+  pattern_monitor_query: fraud-mcp
+  payment_reminder_send: notification-mcp
+  payment_status_check: payments-mcp
+  policy_retrieval: rag-mcp
+  policy_validation: compliance-mcp
+  priority_ticket_update: ticketing-mcp
+  rag_search: rag-mcp
+  regulatory_web_check: compliance-mcp
+  reminder_schedule_create: notification-mcp
+  repayment_schedule_update: collections-mcp
+  request_refund_approval: ticketing-mcp
+  restriction_lookup: collections-mcp
+  risk_assessment_check: compliance-mcp
+  risk_score_calculate: fraud-mcp
+  risk_score_update: collections-mcp
+  sanction_list_check: kyc-mcp
+  search_transactions: payments-mcp
+  segmentation_update: crm-mcp
+  send_message: notification-mcp
+  send_notification: notification-mcp
+  settlement_status_query: payments-mcp
+  similar_ticket_search: ticketing-mcp
+  sla_timer_check: ticketing-mcp
+  sop_search: rag-mcp
+  suggest_resolution: ticketing-mcp
+  ticket_assign: ticketing-mcp
+  ticket_create: ticketing-mcp
+  ticket_escalate: escalation-mcp
+  ticket_status_check: ticketing-mcp
+  ticket_update: ticketing-mcp
+  transaction_audit_log: compliance-mcp
+  transaction_flag: fraud-mcp
+  transaction_lookup: payments-mcp
+  transaction_status_check: payments-mcp
+  transaction_trace: payments-mcp
+  user_profile_create: onboarding-mcp
+  user_risk_profile_update: compliance-mcp
+  workflow_state_query: ticketing-mcp
+service_to_tools:
+  collections-mcp:
+  - account_restriction_apply
+  - debt_status_check
+  - repayment_schedule_update
+  - restriction_lookup
+  - risk_score_update
+  compliance-mcp:
+  - compliance_case_create
+  - compliance_report_generate
+  - policy_validation
+  - regulatory_web_check
+  - risk_assessment_check
+  - transaction_audit_log
+  - user_risk_profile_update
+  crm-mcp:
+  - crm_sync
+  - crm_tag_customer
+  - crm_update
+  - crm_upsert_note
+  - customer_history_fetch
+  - customer_profile_update
+  - customer_tag_update
+  - interaction_log_write
+  - segmentation_update
+  escalation-mcp:
+  - create_human_ticket
+  - escalation_log_create
+  - incident_report_generate
+  - incident_status_lookup
+  - ticket_escalate
+  fraud-mcp:
+  - account_freeze
+  - account_security_actions
+  - behavior_analysis_query
+  - device_fingerprint_check
+  - fraud_alarm_raise
+  - fraud_case_create
+  - pattern_monitor_query
+  - risk_score_calculate
+  - transaction_flag
+  kyc-mcp:
+  - document_verification
+  - face_match_check
+  - identity_lookup
+  - kyc_resubmit_request
+  - kyc_status_lookup
+  - kyc_status_update
+  - kyc_verification_status
+  - liveness_detection
+  - sanction_list_check
+  notification-mcp:
+  - notification_send
+  - notify_team_slack
+  - payment_reminder_send
+  - reminder_schedule_create
+  - send_message
+  - send_notification
+  onboarding-mcp:
+  - account_status_lookup
+  - activation_status_check
+  - first_action_track
+  - onboarding_resend_link
+  - onboarding_step_update
+  - user_profile_create
+  payments-mcp:
+  - bank_confirmation_check
+  - fee_breakdown
+  - get_transaction_status
+  - ledger_reconciliation_check
+  - ledger_trace
+  - payment_status_check
+  - search_transactions
+  - settlement_status_query
+  - transaction_lookup
+  - transaction_status_check
+  - transaction_trace
+  rag-mcp:
+  - faq_lookup
+  - knowledge_base_query
+  - knowledge_search
+  - policy_retrieval
+  - rag_search
+  - sop_search
+  ticketing-mcp:
+  - append_complaint_note
+  - assign_support_queue
+  - classify_complaint
+  - create_complaint_ticket
+  - priority_ticket_update
+  - request_refund_approval
+  - similar_ticket_search
+  - sla_timer_check
+  - suggest_resolution
+  - ticket_assign
+  - ticket_create
+  - ticket_status_check
+  - ticket_update
+  - workflow_state_query
+unmapped_tools: []
+agent_toolsets:
+  billing:
+  - get_transaction_status
+  - search_transactions
+  - request_refund_approval
+  - payment_status_check
+  - ledger_trace
+  - fee_breakdown
+  - create_complaint_ticket
+  - append_complaint_note
+  - classify_complaint
+  - suggest_resolution
+  collections:
+  - debt_status_check
+  - repayment_schedule_update
+  - payment_reminder_send
+  - account_restriction_apply
+  - crm_update
+  - risk_score_update
+  compliance:
+  - compliance_case_create
+  - restriction_lookup
+  - risk_assessment_check
+  - kyc_verification_status
+  - transaction_audit_log
+  - policy_validation
+  - user_risk_profile_update
+  - compliance_report_generate
+  - regulatory_web_check
+  crm:
+  - customer_profile_update
+  - interaction_log_write
+  - customer_tag_update
+  - customer_history_fetch
+  - segmentation_update
+  - crm_sync
+  - crm_upsert_note
+  - crm_tag_customer
+  escalation:
+  - create_human_ticket
+  - assign_support_queue
+  - notify_team_slack
+  - escalation_log_create
+  - priority_ticket_update
+  - incident_report_generate
+  - ticket_escalate
+  - incident_status_lookup
+  faq:
+  - rag_search
+  - faq_lookup
+  - policy_retrieval
+  - knowledge_base_query
+  - similar_ticket_search
+  - knowledge_search
+  - sop_search
+  followup:
+  - ticket_status_check
+  - workflow_state_query
+  - sla_timer_check
+  - reminder_schedule_create
+  - send_notification
+  - ticket_update
+  - send_message
+  - crm_update
+  fraud:
+  - risk_score_calculate
+  - device_fingerprint_check
+  - behavior_analysis_query
+  - pattern_monitor_query
+  - fraud_alarm_raise
+  - transaction_flag
+  - account_freeze
+  - fraud_case_create
+  - transaction_lookup
+  - account_security_actions
+  kyc:
+  - kyc_status_lookup
+  - kyc_resubmit_request
+  - document_verification
+  - identity_lookup
+  - face_match_check
+  - liveness_detection
+  - kyc_status_update
+  - sanction_list_check
+  onboarding:
+  - account_status_lookup
+  - onboarding_resend_link
+  - user_profile_create
+  - onboarding_step_update
+  - activation_status_check
+  - first_action_track
+  - crm_update
+  - notification_send
+  ticketing:
+  - ticket_create
+  - ticket_update
+  - ticket_assign
+  transaction:
+  - transaction_lookup
+  - transaction_status_check
+  - transaction_trace
+  - settlement_status_query
+  - bank_confirmation_check
+  - ledger_reconciliation_check
+  - search_transactions
