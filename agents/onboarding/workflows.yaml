@@ -1,0 +1,5 @@
+workflows:
+  - onboarding_workflow
+  - onboarding_activation_workflow
+  - onboarding_dropoff_recovery_workflow
+  - first_success_workflow

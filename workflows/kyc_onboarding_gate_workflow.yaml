@@ -1,0 +1,11 @@
+name: kyc_onboarding_gate_workflow
+steps:
+  - document_verification
+  - identity_lookup
+  - face_match_check_if_applicable
+  - liveness_detection_if_applicable
+  - sanction_list_check
+  - decide_approved_rejected_or_manual_review
+  - kyc_status_update
+  - log_outcome_for_audit
+

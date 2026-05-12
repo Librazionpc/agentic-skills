@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "name": "create_human_ticket",
+  "description": "Controlled-write creation of a high-priority human handoff ticket with full context summary and routing hints.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "summary"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "severity_level": { "type": "integer", "minimum": 0, "maximum": 3 },
+      "summary": { "type": "string", "minLength": 1 },
+      "category": { "type": "string" },
+      "recommended_queue": { "type": "string" },
+      "metadata": { "type": "object" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ticket_id"],
+    "properties": {
+      "ticket_id": { "type": "string" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED"]
+}
+

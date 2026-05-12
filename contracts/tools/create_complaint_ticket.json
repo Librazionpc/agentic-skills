@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "name": "create_complaint_ticket",
+  "description": "Controlled-write creation of a complaint ticket. Does not execute refunds/reversals; creates a case for review.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id", "category", "description"],
+    "properties": {
+      "transaction_id": { "type": "string", "minLength": 3 },
+      "customer_id": { "type": "string", "description": "Optional if transaction_id uniquely identifies customer." },
+      "category": { "type": "string" },
+      "severity": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+      "description": { "type": "string", "minLength": 3 },
+      "metadata": { "type": "object" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ticket_id", "status"],
+    "properties": {
+      "ticket_id": { "type": "string" },
+      "status": { "type": "string", "enum": ["open", "triaged", "pending_review"] }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED", "CONFLICT"]
+}

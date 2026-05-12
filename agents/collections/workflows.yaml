@@ -1,0 +1,4 @@
+workflows:
+  - collections_workflow
+  - repayment_reminder_workflow
+  - delinquency_restriction_workflow

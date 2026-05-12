@@ -1,0 +1,9 @@
+name: high_value_approval_workflow
+steps:
+  - receive_sensitive_action_request
+  - policy_validation
+  - risk_assessment_check
+  - require_human_approval
+  - compliance_report_generate
+  - record_decision_for_audit
+

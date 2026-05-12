@@ -1,0 +1,20 @@
+version: 1
+agent: transaction
+scenario: pending_bank_transfer_beyond_sla
+user_language: unknown
+inputs:
+  user_messages:
+    - "My transfer is still pending. I sent money 20 minutes ago."
+  known_context:
+    service_type: wallet_to_bank
+    channel: bank_transfer
+expected:
+  required_tool_calls:
+    - get_transaction_status
+  constraints:
+    - must_not_guarantee_refund
+    - must_not_claim_reversal
+    - must_offer_complaint_ticket_or_escalation_when_sla_exceeded
+    - must_use_sla_matrix_guidance
+    - must_be_language_agnostic
+

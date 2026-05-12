@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "name": "compliance_case_create",
+  "description": "Controlled-write creation of a compliance case for human review (AML/regulatory restrictions).",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "case_type", "summary"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "case_type": { "type": "string" },
+      "summary": { "type": "string", "minLength": 1 },
+      "metadata": { "type": "object" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["case_id", "status"],
+    "properties": {
+      "case_id": { "type": "string" },
+      "status": { "type": "string", "enum": ["open", "queued_for_review"] }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED"]
+}
+

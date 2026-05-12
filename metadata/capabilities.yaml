@@ -1,0 +1,12 @@
+capabilities:
+  - id: billing.refund
+    description: Submit refund requests (policy constrained).
+  - id: txn.trace
+    description: Request transfer trace for unresolved transfers.
+  - id: fraud.triage
+    description: Triage suspected fraud and initiate containment.
+  - id: kyc.resubmit
+    description: Trigger KYC resubmission process.
+  - id: ticketing.routing
+    description: Create/update/assign tickets and route ownership.
+

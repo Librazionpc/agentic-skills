@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "name": "user_profile_create",
+  "description": "Controlled-write create/init user profile for onboarding (non-KYC fields only). Runtime enforces allowed fields.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "profile": { "type": "object" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": { "ok": { "type": "boolean" } },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "CONFLICT", "RATE_LIMITED"]
+}
+

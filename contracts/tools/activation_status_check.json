@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "name": "activation_status_check",
+  "description": "Read-only check of activation milestones and current onboarding stage.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id"],
+    "properties": {
+      "customer_id": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "stage", "milestones"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "stage": { "type": "string" },
+      "milestones": {
+        "type": "object",
+        "properties": {
+          "account_created": { "type": "boolean" },
+          "profile_completed": { "type": "boolean" },
+          "kyc_completed": { "type": "boolean" },
+          "first_success_action": { "type": "boolean" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

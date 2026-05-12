@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "name": "compliance_report_generate",
+  "description": "Generate an internal compliance report package (audit-ready). Not customer-visible.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["report_type"],
+    "properties": {
+      "report_type": { "type": "string", "enum": ["refund_approval", "aml_review", "restriction_review", "incident_summary", "other"] },
+      "customer_id": { "type": "string" },
+      "transaction_id": { "type": "string" },
+      "ticket_id": { "type": "string" },
+      "range": {
+        "type": "object",
+        "properties": {
+          "from": { "type": "string", "format": "date-time" },
+          "to": { "type": "string", "format": "date-time" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["report_id", "status"],
+    "properties": {
+      "report_id": { "type": "string" },
+      "status": { "type": "string", "enum": ["queued", "generated"] }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED", "UPSTREAM_UNAVAILABLE"]
+}
+

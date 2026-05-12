@@ -1,0 +1,8 @@
+name: hlt_financial_action_approval_workflow
+steps:
+  - confirm_customer_request_and_impact
+  - create_complaint_ticket_if_missing
+  - run_policy_checks_in_runtime
+  - request_human_approval
+  - notify_customer_of_review_process
+

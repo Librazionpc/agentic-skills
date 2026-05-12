@@ -1,0 +1,9 @@
+tools:
+  - create_human_ticket
+  - assign_support_queue
+  - notify_team_slack
+  - escalation_log_create
+  - priority_ticket_update
+  - incident_report_generate
+  - ticket_escalate
+  - incident_status_lookup

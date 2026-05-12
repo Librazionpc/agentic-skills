@@ -1,0 +1,8 @@
+name: failed_transfer_workflow
+steps:
+  - lookup_transaction
+  - interpret_status
+  - request_trace_if_needed
+  - notify_customer_of_next_steps
+  - create_or_update_ticket
+

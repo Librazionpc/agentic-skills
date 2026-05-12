@@ -1,0 +1,8 @@
+sources:
+- help_center
+- sops_public
+- faq_canonical
+- fintech_policies
+- redtech_support_kb_v1
+top_k: 5
+reranking: true

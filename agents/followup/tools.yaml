@@ -1,0 +1,9 @@
+tools:
+  - ticket_status_check
+  - workflow_state_query
+  - sla_timer_check
+  - reminder_schedule_create
+  - send_notification
+  - ticket_update
+  - send_message
+  - crm_update

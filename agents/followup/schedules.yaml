@@ -1,0 +1,10 @@
+version: 1
+schedules:
+  silent_customer_checkin:
+    after_last_customer_message: "24h"
+    final_checkin_after: "72h"
+  sla_monitoring:
+    gentle_reminder_after_overdue: "1h"
+    escalation_warning_after_overdue: "24h"
+    escalation_trigger_after_overdue: "48h"
+

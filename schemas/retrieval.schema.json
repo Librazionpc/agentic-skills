@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RetrievalConfig",
+  "type": "object",
+  "required": ["sources"],
+  "properties": {
+    "sources": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "top_k": { "type": "integer", "minimum": 1, "maximum": 50 },
+    "reranking": { "type": "boolean" }
+  },
+  "additionalProperties": true
+}
+

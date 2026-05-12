@@ -1,0 +1,12 @@
+version: 1
+routes:
+  duplicate_debit:
+    agent: billing
+  pending_transfer:
+    agent: transaction
+  kyc_failed:
+    agent: kyc
+  account_compromised:
+    agent: fraud
+  general_faq:
+    agent: faq

@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "name": "crm_upsert_note",
+  "description": "Controlled-write upsert of a CRM note (must redact secrets and avoid sensitive identifiers).",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "note"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "note": { "type": "string", "minLength": 1 },
+      "tags": { "type": "array", "items": { "type": "string" } }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": { "ok": { "type": "boolean" } },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED"]
+}
+

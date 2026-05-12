@@ -1,0 +1,5 @@
+name: compliance_agent
+owner: compliance
+priority: critical
+channels: [internal]
+tags: [compliance, aml, restrictions]

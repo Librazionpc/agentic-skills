@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "name": "behavior_analysis_query",
+  "description": "Read-only query for behavioral anomaly indicators (velocity, pattern shifts). Returns customer-safe summaries only.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "window": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["anomaly_level"],
+    "properties": {
+      "anomaly_level": { "type": "string", "enum": ["none", "low", "medium", "high"] },
+      "notes": { "type": "string" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

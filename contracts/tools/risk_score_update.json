@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "name": "risk_score_update",
+  "description": "Controlled-write request to update a collections risk marker/score for internal workflows. Not customer-visible.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "signal"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "signal": { "type": "string" },
+      "notes": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": { "ok": { "type": "boolean" } },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN"]
+}
+

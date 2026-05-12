@@ -1,0 +1,5 @@
+name: collections_agent
+owner: credit_ops
+priority: high
+channels: [web, whatsapp, telegram]
+tags: [collections, loans]

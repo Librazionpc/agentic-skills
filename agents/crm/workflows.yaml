@@ -1,0 +1,5 @@
+workflows:
+  - crm_update_workflow
+  - customer_profile_update_workflow
+  - interaction_logging_workflow
+  - crm_sync_workflow

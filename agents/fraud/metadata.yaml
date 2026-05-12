@@ -1,0 +1,5 @@
+name: fraud_agent
+owner: risk_ops
+priority: critical
+channels: [web, whatsapp, telegram]
+tags: [fraud, security, scams]

@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "name": "notify_team_slack",
+  "description": "Controlled-write notification to an internal team channel (Slack/Teams). Must not include secrets or sensitive identifiers.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["channel", "message"],
+    "properties": {
+      "channel": { "type": "string" },
+      "message": { "type": "string", "minLength": 1 },
+      "severity": { "type": "string", "enum": ["info", "warning", "critical"] }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": { "ok": { "type": "boolean" } },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED", "UPSTREAM_UNAVAILABLE"]
+}
+

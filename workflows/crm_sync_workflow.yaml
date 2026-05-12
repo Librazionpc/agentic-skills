@@ -1,0 +1,6 @@
+name: crm_sync_workflow
+steps:
+  - determine_sync_targets
+  - crm_sync
+  - interaction_log_write
+

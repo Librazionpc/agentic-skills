@@ -1,0 +1,31 @@
+version: 1
+routes:
+  refund:
+    agent: billing
+  duplicate_debit:
+    agent: billing
+  chargeback:
+    agent: billing
+  failed_transfer:
+    agent: transaction
+  pending_transfer:
+    agent: transaction
+  kyc_failed:
+    agent: kyc
+  suspicious_activity:
+    agent: fraud
+  account_compromised:
+    agent: fraud
+  ticket_management:
+    agent: ticketing
+  regulatory_restriction:
+    agent: compliance
+  sla_followup:
+    agent: followup
+  overdue_payment:
+    agent: collections
+  general_faq:
+    agent: faq
+  crm_update:
+    agent: crm
+

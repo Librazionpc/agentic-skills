@@ -1,0 +1,8 @@
+name: regulatory_hold_workflow
+steps:
+  - identify_hold_type
+  - communicate_allowed_high_level_reason
+  - request_required_customer_action_if_any
+  - create_or_update_compliance_case
+  - schedule_followup
+

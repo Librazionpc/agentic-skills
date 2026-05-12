@@ -1,0 +1,17 @@
+version: 1
+errors:
+  - code: INVALID_INPUT
+    description: Request payload failed validation.
+  - code: NOT_FOUND
+    description: Resource does not exist or is not accessible.
+  - code: FORBIDDEN
+    description: Caller lacks required capability.
+  - code: RATE_LIMITED
+    description: Too many requests; retry later.
+  - code: UPSTREAM_TIMEOUT
+    description: Provider/bank/system did not respond in time.
+  - code: UPSTREAM_UNAVAILABLE
+    description: Provider/bank/system is currently unavailable.
+  - code: CONFLICT
+    description: Request conflicts with current state (duplicate or already processed).
+

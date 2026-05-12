@@ -1,0 +1,68 @@
+version: 1
+currency: NGN
+rules:
+  - service_type: airtime
+    selector:
+      network: [mtn, airtel]
+    expected_window: "instant–10s"
+    max_processing_window: "2m"
+    escalation_threshold: "5m"
+    refund_window_if_failed: "5–15m"
+  - service_type: airtime
+    selector:
+      network: [glo, 9mobile]
+    expected_window: "instant–20s"
+    max_processing_window: "3m"
+    escalation_threshold: "7m"
+    refund_window_if_failed: "10–20m"
+  - service_type: data
+    selector:
+      network: [mtn, airtel, glo, 9mobile]
+    expected_window: "instant–30s"
+    max_processing_window: "3m"
+    escalation_threshold: "5m"
+    refund_window_if_failed: "10–20m"
+  - service_type: electricity
+    selector:
+      provider: ["*"]
+    expected_window: "30s–2m"
+    max_processing_window: "5m"
+    escalation_threshold: "10m"
+    refund_window_if_failed: "10–30m"
+    notes:
+      - token_may_be_async: true
+  - service_type: cable_tv
+    selector:
+      provider: ["*"]
+    expected_window: "30s–2m"
+    max_processing_window: "5m"
+    escalation_threshold: "10m"
+    refund_window_if_failed: "10–30m"
+  - service_type: wallet_to_wallet
+    selector:
+      channel: [internal]
+    expected_window: "instant"
+    max_processing_window: "10s"
+    escalation_threshold: "30s"
+    refund_window_if_failed: "immediate"
+  - service_type: wallet_to_bank
+    selector:
+      channel: [bank_transfer]
+    expected_window: "instant–1m"
+    max_processing_window: "5m"
+    escalation_threshold: "10m"
+    refund_window_if_failed: "30m–24h"
+  - service_type: withdrawal
+    selector:
+      channel: [wallet_withdrawal]
+    expected_window: "instant–2m"
+    max_processing_window: "10m"
+    escalation_threshold: "15m"
+    refund_window_if_failed: "30m–24h"
+  - service_type: deposit
+    selector:
+      channel: [bank_to_wallet]
+    expected_window: "instant–2m"
+    max_processing_window: "5m"
+    escalation_threshold: "10m_not_received"
+

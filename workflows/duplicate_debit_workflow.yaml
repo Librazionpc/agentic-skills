@@ -1,0 +1,8 @@
+name: duplicate_debit_workflow
+steps:
+  - verify_transactions
+  - confirm_duplicate_pattern
+  - check_reversal_status
+  - determine_refund_or_resolution_path
+  - notify_customer
+

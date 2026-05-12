@@ -1,0 +1,4 @@
+workflows:
+  - sla_followup_workflow
+  - silent_customer_reengagement_workflow
+  - closure_verification_workflow

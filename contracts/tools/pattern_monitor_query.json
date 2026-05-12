@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "name": "pattern_monitor_query",
+  "description": "Read-only query for cross-user/cross-device fraud patterns (rings, shared device clusters, coordinated bursts). Returns customer-safe summaries only.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "window": { "type": "string", "description": "Lookback window, e.g., 1h, 24h." },
+      "pattern_types": { "type": "array", "items": { "type": "string" } },
+      "customer_id": { "type": "string" },
+      "transaction_id": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["findings"],
+    "properties": {
+      "findings": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["pattern_type", "risk_level", "summary"],
+          "properties": {
+            "pattern_type": { "type": "string" },
+            "risk_level": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+            "summary": { "type": "string" },
+            "signals": { "type": "array", "items": { "type": "string" } }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

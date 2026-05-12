@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "name": "workflow_state_query",
+  "description": "Read-only query of workflow state for a case/ticket (pending, running, stuck, completed).",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "ticket_id": { "type": "string" },
+      "workflow_id": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["state"],
+    "properties": {
+      "state": { "type": "string", "enum": ["not_found", "pending", "running", "stuck", "completed", "failed"] },
+      "last_updated_at": { "type": "string", "format": "date-time" },
+      "notes": { "type": "string" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "name": "crm_sync",
+  "description": "Controlled-write request to sync CRM state across connected systems (support, analytics, marketing) when configured.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "targets": { "type": "array", "items": { "type": "string" } }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": {
+      "ok": { "type": "boolean" },
+      "sync_id": { "type": "string" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED", "UPSTREAM_UNAVAILABLE"]
+}
+

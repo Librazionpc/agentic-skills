@@ -1,0 +1,5 @@
+sources:
+- crm_taxonomy
+- crm_note_templates
+top_k: 5
+reranking: true

@@ -1,0 +1,8 @@
+name: account_takeover_workflow
+steps:
+  - gather_takeover_indicators
+  - trigger_account_security_actions_if_allowed
+  - open_fraud_case
+  - escalate_to_human_immediately
+  - provide_customer_safety_guidance
+

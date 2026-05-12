@@ -1,0 +1,8 @@
+sources:
+- refunds_policy
+- dispute_resolution
+- card_billing
+- redtech_support_kb_v1
+- redtech_sla_v1
+top_k: 5
+reranking: true

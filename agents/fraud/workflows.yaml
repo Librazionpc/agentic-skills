@@ -1,0 +1,6 @@
+workflows:
+  - fraud_review_workflow
+  - account_takeover_workflow
+  - suspicious_transfer_workflow
+  - scam_report_workflow
+  - fraud_pattern_watchdog_workflow

@@ -1,0 +1,6 @@
+permissions:
+  - txn.read
+  - account.read
+  - complaints.write
+  - ticket.create
+  - ticket.comment

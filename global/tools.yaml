@@ -1,0 +1,6 @@
+tools:
+  - get_deployment_time
+  - get_deployment_locale
+  - detect_user_language
+  - translate_template
+

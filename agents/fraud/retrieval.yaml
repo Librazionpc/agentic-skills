@@ -1,0 +1,5 @@
+sources:
+- fraud_triage
+- scam_playbooks
+top_k: 5
+reranking: true

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "name": "priority_ticket_update",
+  "description": "Controlled-write update to mark a ticket as priority/high risk and attach escalation level.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ticket_id", "priority"],
+    "properties": {
+      "ticket_id": { "type": "string" },
+      "priority": { "type": "string", "enum": ["high", "critical"] },
+      "level": { "type": "integer", "minimum": 0, "maximum": 3 },
+      "reason": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": { "ok": { "type": "boolean" } },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "NOT_FOUND", "FORBIDDEN", "CONFLICT"]
+}
+

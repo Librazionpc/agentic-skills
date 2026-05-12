@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "name": "restriction_lookup",
+  "description": "Read-only lookup of account restrictions/holds (customer-safe).",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id"],
+    "properties": {
+      "customer_id": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "restrictions"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "restrictions": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["type"],
+          "properties": {
+            "type": { "type": "string" },
+            "status": { "type": "string" },
+            "message": { "type": "string" }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

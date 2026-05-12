@@ -1,0 +1,8 @@
+sources:
+- regulatory_playbooks
+- aml_guidelines
+- compliance_sop
+- cbn_regulations
+- nigeria_fintech_policy
+top_k: 5
+reranking: true

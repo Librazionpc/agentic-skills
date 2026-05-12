@@ -1,0 +1,8 @@
+tools:
+  - rag_search
+  - faq_lookup
+  - policy_retrieval
+  - knowledge_base_query
+  - similar_ticket_search
+  - knowledge_search
+  - sop_search

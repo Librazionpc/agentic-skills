@@ -1,0 +1,47 @@
+version: 1
+complaints:
+  severities:
+    - id: low
+      description: Minor impact; user can wait within SLA.
+    - id: medium
+      description: Moderate impact; SLA exceeded or repeated failures.
+    - id: high
+      description: High impact; large amount, urgent need, or repeated unresolved issue.
+    - id: critical
+      description: Suspected fraud, account takeover, or legal threat.
+
+  categories:
+    - id: pending_transaction
+      label: Pending transaction
+      required_fields: [transaction_id]
+      default_severity: medium
+      routes_to: transaction
+    - id: failed_but_debited
+      label: Failed but debited
+      required_fields: [transaction_id]
+      default_severity: high
+      routes_to: billing
+    - id: service_not_delivered
+      label: Service not delivered
+      required_fields: [transaction_id]
+      default_severity: medium
+      routes_to: transaction
+    - id: duplicate_debit
+      label: Duplicate debit
+      required_fields: [transaction_id]
+      default_severity: high
+      routes_to: billing
+    - id: wrong_beneficiary
+      label: Sent to wrong beneficiary
+      required_fields: [transaction_id]
+      default_severity: high
+      routes_to: escalation
+    - id: suspected_fraud
+      label: Suspected fraud / account compromise
+      required_fields: [transaction_id]
+      default_severity: critical
+      routes_to: fraud
+
+  fallback_when_missing_transaction_id:
+    description: "If the user cannot provide a transaction ID, request a transaction screenshot/image. If neither ID nor image is available, use `customer_id` from request context to search recent paginated transactions (never ask the user for `customer_id/user_id`)."
+    acceptable_fields: [image, customer_id]

@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "name": "ticket_escalate",
+  "description": "Controlled-write escalation of a ticket (priority bump and routing).",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ticket_id", "reason"],
+    "properties": {
+      "ticket_id": { "type": "string" },
+      "reason": { "type": "string", "minLength": 1 },
+      "priority": { "type": "string", "enum": ["high", "critical"] }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": { "ok": { "type": "boolean" } },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "NOT_FOUND", "FORBIDDEN", "RATE_LIMITED"]
+}
+

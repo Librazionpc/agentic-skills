@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "name": "ledger_reconciliation_check",
+  "description": "Read-only reconciliation check between ledger and external settlement/provider records. Returns customer-safe mismatch indicators only.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id"],
+    "properties": {
+      "transaction_id": { "type": "string", "minLength": 3 }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id", "result"],
+    "properties": {
+      "transaction_id": { "type": "string" },
+      "result": { "type": "string", "enum": ["consistent", "inconsistent", "unknown"] },
+      "notes": { "type": "string" },
+      "last_checked_at": { "type": "string", "format": "date-time" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "NOT_FOUND", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

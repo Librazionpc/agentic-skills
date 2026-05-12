@@ -1,0 +1,7 @@
+tools:
+  - debt_status_check
+  - repayment_schedule_update
+  - payment_reminder_send
+  - account_restriction_apply
+  - crm_update
+  - risk_score_update

@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "name": "customer_tag_update",
+  "description": "Controlled-write add/remove tags for a customer from an approved taxonomy.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "add": { "type": "array", "items": { "type": "string" } },
+      "remove": { "type": "array", "items": { "type": "string" } }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": { "ok": { "type": "boolean" } },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED"]
+}
+

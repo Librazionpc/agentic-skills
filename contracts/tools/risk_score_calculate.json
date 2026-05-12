@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "name": "risk_score_calculate",
+  "description": "Read-only calculation of a risk level for a customer/transaction based on internal signals. Do not expose numeric scores to customers.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "customer_id": { "type": "string" },
+      "transaction_id": { "type": "string" },
+      "context": { "type": "object" }
+    },
+    "additionalProperties": true
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["risk_level"],
+    "properties": {
+      "risk_level": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+      "reasons": { "type": "array", "items": { "type": "string" } }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

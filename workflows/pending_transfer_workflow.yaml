@@ -1,0 +1,8 @@
+name: pending_transfer_workflow
+steps:
+  - lookup_transaction
+  - interpret_pending_reason
+  - advise_expected_window_with_caveats
+  - request_trace_if_threshold_exceeded
+  - create_or_update_ticket
+

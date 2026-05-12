@@ -1,0 +1,7 @@
+name: sla_followup_workflow
+steps:
+  - check_ticket_status
+  - send_followup_message
+  - update_ticket_notes
+  - escalate_if_sla_breached
+

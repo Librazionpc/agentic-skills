@@ -1,0 +1,8 @@
+name: kyc_resubmission_workflow
+steps:
+  - confirm_required_documents
+  - validate_photo_quality_guidance
+  - submit_resubmission_request
+  - confirm_expected_review_window
+  - notify_customer
+

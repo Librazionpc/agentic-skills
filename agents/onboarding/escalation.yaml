@@ -1,0 +1,7 @@
+rules:
+  - condition: kyc_blocked
+    action: route_to_kyc
+  - condition: repeated_failures
+    action: human_review
+  - condition: missing_required_kyc
+    action: route_to_kyc

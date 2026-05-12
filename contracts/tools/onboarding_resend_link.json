@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "name": "onboarding_resend_link",
+  "description": "Controlled-write request to resend onboarding/activation link or code via approved channel rules.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "channel"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "channel": { "type": "string", "enum": ["email", "sms", "whatsapp", "in_app"] }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": {
+      "ok": { "type": "boolean" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED", "UPSTREAM_UNAVAILABLE"]
+}
+

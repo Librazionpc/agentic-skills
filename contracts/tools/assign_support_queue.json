@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "name": "assign_support_queue",
+  "description": "Controlled-write routing of a ticket/case to a human support queue/team.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ticket_id", "queue"],
+    "properties": {
+      "ticket_id": { "type": "string" },
+      "queue": { "type": "string" },
+      "reason": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": { "ok": { "type": "boolean" } },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "NOT_FOUND", "FORBIDDEN", "CONFLICT"]
+}
+

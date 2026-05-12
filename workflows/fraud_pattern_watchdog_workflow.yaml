@@ -1,0 +1,6 @@
+name: fraud_pattern_watchdog_workflow
+steps:
+  - pattern_monitor_query
+  - if_pattern_high_risk_raise_alarm
+  - create_fraud_case_if_needed
+  - notify_escalation_team_if_critical

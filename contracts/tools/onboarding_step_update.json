@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "name": "onboarding_step_update",
+  "description": "Controlled-write update onboarding step progress for a customer.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "step", "status"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "step": { "type": "string" },
+      "status": { "type": "string", "enum": ["not_started", "in_progress", "completed", "blocked"] },
+      "notes": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": { "ok": { "type": "boolean" } },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED"]
+}
+

@@ -1,0 +1,6 @@
+name: interaction_logging_workflow
+steps:
+  - collect_interaction_summary
+  - redact_sensitive_data
+  - interaction_log_write
+

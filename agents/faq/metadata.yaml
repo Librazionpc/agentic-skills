@@ -1,0 +1,5 @@
+name: faq_agent
+owner: enablement
+priority: medium
+channels: [web, whatsapp, telegram]
+tags: [faq, knowledge, rag]

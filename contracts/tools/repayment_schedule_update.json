@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "name": "repayment_schedule_update",
+  "description": "Controlled-write request to update a repayment schedule (reschedule/installments) within policy. Does not change balances directly; records schedule changes under approval rules.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "proposal"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "loan_id": { "type": "string" },
+      "proposal": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": { "type": "string", "enum": ["installments", "reschedule", "promise_to_pay"] },
+          "start_date": { "type": "string", "format": "date-time" },
+          "end_date": { "type": "string", "format": "date-time" },
+          "installment_amount": { "type": "number", "minimum": 0 },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": {
+      "ok": { "type": "boolean" },
+      "request_id": { "type": "string" },
+      "status": { "type": "string", "enum": ["submitted", "queued_for_review", "applied"] }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "CONFLICT", "RATE_LIMITED"]
+}
+

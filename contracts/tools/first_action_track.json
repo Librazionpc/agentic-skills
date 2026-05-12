@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "name": "first_action_track",
+  "description": "Controlled-write record a first-success activation milestone (e.g., first deposit/transfer) for analytics/onboarding progress.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "action"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "action": { "type": "string" },
+      "at": { "type": "string", "format": "date-time" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": { "ok": { "type": "boolean" } },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED"]
+}
+

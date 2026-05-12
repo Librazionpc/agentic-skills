@@ -1,0 +1,5 @@
+permissions:
+  - loans.read
+  - loans.write
+  - comms.send
+

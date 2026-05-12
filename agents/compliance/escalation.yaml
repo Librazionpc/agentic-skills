@@ -1,0 +1,11 @@
+rules:
+  - condition: legal_question
+    action: route_to_legal_human
+  - condition: aml_flag
+    action: priority_queue
+  - condition: regulatory_violation_risk
+    action: human_compliance_review
+  - condition: missing_required_kyc
+    action: block_and_route_to_kyc
+  - condition: repeated_policy_violations
+    action: escalate_to_escalation_agent

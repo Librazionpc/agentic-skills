@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "name": "get_user_account_summary",
+  "description": "Read-only summary of account status and recent activity. No secrets, no full identifiers.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id"],
+    "properties": {
+      "customer_id": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "account_status"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "account_status": { "type": "string", "enum": ["active", "restricted", "disabled", "unknown"] },
+      "kyc_level": { "type": "string" },
+      "flags": { "type": "array", "items": { "type": "string" } }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "NOT_FOUND", "FORBIDDEN"]
+}
+

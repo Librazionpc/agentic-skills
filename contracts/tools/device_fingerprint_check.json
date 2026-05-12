@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "name": "device_fingerprint_check",
+  "description": "Read-only check of device/login anomalies for a customer. Returns customer-safe indicators only.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "window": { "type": "string", "description": "Optional lookback window, e.g., 24h." }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "anomaly_level"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "anomaly_level": { "type": "string", "enum": ["none", "low", "medium", "high"] },
+      "signals": { "type": "array", "items": { "type": "string" } }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

@@ -1,0 +1,11 @@
+name: compliance_gatekeeping_workflow
+steps:
+  - receive_proposed_action_request
+  - kyc_verification_status
+  - restriction_lookup
+  - policy_validation
+  - risk_assessment_check
+  - decide_approve_block_or_flag
+  - transaction_audit_log_if_needed
+  - create_compliance_case_if_review_or_block
+

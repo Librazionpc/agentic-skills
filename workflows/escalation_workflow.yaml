@@ -1,0 +1,7 @@
+name: escalation_workflow
+steps:
+  - acknowledge_and_deescalate
+  - summarize_case
+  - confirm_required_context
+  - route_to_owner_team
+

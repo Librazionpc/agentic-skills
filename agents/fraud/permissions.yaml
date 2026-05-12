@@ -1,0 +1,6 @@
+permissions:
+  - fraud.read
+  - fraud.write
+  - security.write
+  - ticket.escalate
+

@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "name": "fee_breakdown",
+  "description": "Read-only breakdown of fees/charges for a transaction. Must return customer-safe fields only.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id"],
+    "properties": {
+      "transaction_id": { "type": "string", "minLength": 3 }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id", "items", "total_fees"],
+    "properties": {
+      "transaction_id": { "type": "string" },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["label", "amount", "currency"],
+          "properties": {
+            "label": { "type": "string" },
+            "amount": { "type": "number" },
+            "currency": { "type": "string", "minLength": 3, "maxLength": 3 }
+          },
+          "additionalProperties": true
+        }
+      },
+      "total_fees": { "type": "number" },
+      "currency": { "type": "string", "minLength": 3, "maxLength": 3 }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "NOT_FOUND", "FORBIDDEN"]
+}
+

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "name": "fraud_alarm_raise",
+  "description": "Controlled-write raise an internal fraud alarm/alert for immediate review. Not customer-facing.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["severity", "summary"],
+    "properties": {
+      "severity": { "type": "string", "enum": ["warning", "critical"] },
+      "summary": { "type": "string", "minLength": 1 },
+      "customer_id": { "type": "string" },
+      "transaction_id": { "type": "string" },
+      "signals": { "type": "array", "items": { "type": "string" } }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok", "alarm_id"],
+    "properties": {
+      "ok": { "type": "boolean" },
+      "alarm_id": { "type": "string" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED", "UPSTREAM_UNAVAILABLE"]
+}
+

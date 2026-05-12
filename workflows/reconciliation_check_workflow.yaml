@@ -1,0 +1,8 @@
+name: reconciliation_check_workflow
+steps:
+  - transaction_status_check
+  - settlement_status_query
+  - bank_confirmation_check_if_needed
+  - ledger_reconciliation_check
+  - summarize_consistency_and_next_steps
+

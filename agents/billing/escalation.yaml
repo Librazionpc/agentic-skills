@@ -1,0 +1,8 @@
+rules:
+  - condition: fraud_suspected
+    action: escalate_to_fraud
+  - condition: amount_ngn > 500000
+    action: human_review
+  - condition: customer_threatens_legal
+    action: escalate_to_escalation_agent
+

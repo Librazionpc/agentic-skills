@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "name": "incident_status_lookup",
+  "description": "Read-only lookup of current incident/outage status for customer communications.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "service": { "type": "string" },
+      "incident_id": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["status"],
+    "properties": {
+      "status": { "type": "string", "enum": ["none", "investigating", "identified", "monitoring", "resolved"] },
+      "message": { "type": "string" },
+      "last_updated_at": { "type": "string", "format": "date-time" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

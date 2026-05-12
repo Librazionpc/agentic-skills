@@ -1,0 +1,9 @@
+tools:
+  - kyc_status_lookup
+  - kyc_resubmit_request
+  - document_verification
+  - identity_lookup
+  - face_match_check
+  - liveness_detection
+  - kyc_status_update
+  - sanction_list_check

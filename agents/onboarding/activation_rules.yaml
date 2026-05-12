@@ -1,0 +1,16 @@
+version: 1
+milestones:
+  - id: account_created
+    description: "User has created an account."
+  - id: profile_completed
+    description: "Non-KYC profile fields completed."
+  - id: kyc_completed
+    description: "KYC verification completed (owned by KYC agent)."
+  - id: first_success_action
+    description: "User completed a first successful action (optional retention milestone)."
+first_success_actions:
+  - deposit
+  - wallet_funding
+  - transfer
+  - airtime_purchase
+

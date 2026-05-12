@@ -1,0 +1,7 @@
+name: onboarding_activation_workflow
+steps:
+  - activation_status_check
+  - guide_next_step
+  - onboarding_step_update
+  - crm_update
+

@@ -1,0 +1,6 @@
+sources:
+- onboarding_requirements
+- account_activation
+- signup_troubleshooting
+top_k: 5
+reranking: true

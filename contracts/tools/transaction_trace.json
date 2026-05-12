@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "name": "transaction_trace",
+  "description": "Read-only reconstruction of transaction lifecycle events (customer-safe summaries; no internal IDs).",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id"],
+    "properties": {
+      "transaction_id": { "type": "string", "minLength": 3 }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id", "events"],
+    "properties": {
+      "transaction_id": { "type": "string" },
+      "events": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["at", "stage"],
+          "properties": {
+            "at": { "type": "string", "format": "date-time" },
+            "stage": { "type": "string" },
+            "summary": { "type": "string" }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "NOT_FOUND", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

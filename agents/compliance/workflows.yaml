@@ -1,0 +1,5 @@
+workflows:
+  - aml_review_workflow
+  - regulatory_hold_workflow
+  - compliance_gatekeeping_workflow
+  - high_value_approval_workflow

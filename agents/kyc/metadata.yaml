@@ -1,0 +1,5 @@
+name: kyc_agent
+owner: compliance_ops
+priority: high
+channels: [web, whatsapp, telegram]
+tags: [kyc, verification, identity]

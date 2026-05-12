@@ -1,0 +1,11 @@
+version: 1
+models:
+  - id: baseline_risk_level
+    description: "Maps signals to risk_level (low/medium/high/critical). Implementation lives in runtime; this file documents expected outputs."
+    outputs: [low, medium, high, critical]
+    signals_examples:
+      - "high_velocity_transfers"
+      - "new_device_login_then_withdrawal"
+      - "multiple_failed_login_attempts"
+      - "recipient_flagged"
+

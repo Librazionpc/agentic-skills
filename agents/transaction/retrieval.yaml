@@ -1,0 +1,8 @@
+sources:
+- redtech_support_kb_v1
+- redtech_sla_v1
+- transfer_statuses
+- bank_error_codes
+- settlement_windows
+top_k: 5
+reranking: true

@@ -1,0 +1,9 @@
+name: escalation_conflict_resolution_workflow
+steps:
+  - detect_state_conflict
+  - collect_agent_outputs
+  - generate_conflict_summary
+  - create_human_ticket
+  - assign_support_queue
+  - incident_report_generate
+

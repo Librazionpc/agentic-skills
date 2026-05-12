@@ -1,0 +1,4 @@
+rules:
+  - condition: policy_missing_or_conflicting
+    action: route_to_compliance
+

@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "name": "segmentation_update",
+  "description": "Controlled-write update to customer segmentation attributes used by downstream agents. Runtime enforces allowed keys.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "segment"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "segment": { "type": "object" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": { "ok": { "type": "boolean" } },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED"]
+}
+

@@ -1,0 +1,4 @@
+permissions:
+  - crm.write
+  - ticket.read
+

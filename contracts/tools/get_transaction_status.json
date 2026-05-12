@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "name": "get_transaction_status",
+  "description": "Read-only lookup of a single transaction with masked/sanitized fields.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id"],
+    "properties": {
+      "transaction_id": { "type": "string", "minLength": 3 },
+      "customer_id": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id", "status", "service_type", "amount", "currency", "created_at"],
+    "properties": {
+      "transaction_id": { "type": "string" },
+      "status": { "type": "string", "enum": ["SUCCESS", "PENDING", "FAILED", "REFUNDED"] },
+      "service_type": {
+        "type": "string",
+        "enum": ["airtime", "data", "electricity", "cable_tv", "wallet_to_wallet", "wallet_to_bank", "withdrawal", "deposit", "bill_payment", "other"]
+      },
+      "channel": { "type": "string" },
+      "network": { "type": "string" },
+      "provider": { "type": "string" },
+      "amount": { "type": "number", "minimum": 0 },
+      "currency": { "type": "string", "minLength": 3, "maxLength": 3 },
+      "created_at": { "type": "string", "format": "date-time" },
+      "updated_at": { "type": "string", "format": "date-time" },
+      "beneficiary_masked": { "type": "string" },
+      "reason_code": { "type": "string" },
+      "reason_message": { "type": "string" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "NOT_FOUND", "FORBIDDEN", "RATE_LIMITED", "UPSTREAM_TIMEOUT", "UPSTREAM_UNAVAILABLE"]
+}
+

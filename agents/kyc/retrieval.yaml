@@ -1,0 +1,6 @@
+sources:
+- kyc_requirements
+- document_guidelines
+- verification_failures
+top_k: 5
+reranking: true

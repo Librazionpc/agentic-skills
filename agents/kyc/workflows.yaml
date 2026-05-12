@@ -1,0 +1,4 @@
+workflows:
+  - kyc_review_workflow
+  - kyc_resubmission_workflow
+  - kyc_onboarding_gate_workflow

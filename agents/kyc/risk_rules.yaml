@@ -1,0 +1,15 @@
+version: 1
+rules:
+  - id: repeated_mismatch
+    description: "Repeated identity mismatches or resubmissions beyond policy threshold."
+    risk_level: high
+    action_hint: "manual_review + escalate suspicious patterns"
+  - id: low_quality_documents
+    description: "Document quality is blurry/partial/unreadable."
+    risk_level: medium
+    action_hint: "request resubmission via verified flow"
+  - id: sanctions_review_required
+    description: "Sanctions screening result requires review."
+    risk_level: critical
+    action_hint: "route to compliance human review"
+

@@ -1,0 +1,4 @@
+tools:
+  - ticket_create
+  - ticket_update
+  - ticket_assign

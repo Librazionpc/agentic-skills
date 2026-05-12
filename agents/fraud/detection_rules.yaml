@@ -1,0 +1,14 @@
+version: 1
+rules:
+  - id: velocity_spike
+    description: "Multiple large transfers in a short time window."
+    action_hint: "risk_score_calculate -> transaction_flag -> consider account_freeze"
+  - id: account_takeover_pattern
+    description: "New device/login anomaly followed by sensitive actions."
+    action_hint: "device_fingerprint_check -> account_security_actions -> escalate"
+  - id: scam_report_social_engineering
+    description: "Customer reports being tricked into sending money."
+    action_hint: "fraud_case_create -> route to recovery/human review"
+  - id: coordinated_ring_activity
+    description: "Cross-user coordinated pattern (shared devices, same recipients, burst behavior)."
+    action_hint: "pattern_monitor_query -> fraud_alarm_raise -> fraud_case_create -> escalate"

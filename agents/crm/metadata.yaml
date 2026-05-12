@@ -1,0 +1,5 @@
+name: crm_update_agent
+owner: rev_ops
+priority: medium
+channels: [web, whatsapp, telegram]
+tags: [crm, notes, tagging]

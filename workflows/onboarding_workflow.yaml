@@ -1,0 +1,7 @@
+name: onboarding_workflow
+steps:
+  - identify_blocking_step
+  - validate_requirements
+  - propose_next_action
+  - create_or_update_ticket_if_needed
+

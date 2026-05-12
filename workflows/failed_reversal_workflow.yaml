@@ -1,0 +1,8 @@
+name: failed_reversal_workflow
+steps:
+  - verify_transaction
+  - check_reversal_attempt
+  - request_trace_if_needed
+  - determine_next_action
+  - notify_customer
+

@@ -1,0 +1,7 @@
+rules:
+  - condition: sensitive_data_detected
+    action: block_and_request_redaction
+  - condition: unverified_profile_change_request
+    action: route_to_human_or_verified_flow
+  - condition: suspected_account_takeover
+    action: escalate_to_fraud

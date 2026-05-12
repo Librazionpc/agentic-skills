@@ -1,0 +1,5 @@
+sources:
+- followup_templates
+- sla_policies
+top_k: 5
+reranking: true

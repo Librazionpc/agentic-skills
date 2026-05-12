@@ -1,0 +1,66 @@
+version: 1
+conditions:
+  - id: fraud_suspected
+    description: User reports compromise/scam, or anomalous pattern detected by runtime signals.
+  - id: duplicate_debit
+    description: Two or more debits for the same intent/reference within a short window.
+  - id: customer_requests_refund_or_reversal
+    description: User explicitly asks for refund/reversal/chargeback/balance adjustment.
+  - id: pending_exceeds_sla_threshold
+    description: Transaction is pending beyond SLA threshold derived from `sla/sla_matrix.yaml`.
+  - id: high_value_transaction
+    description: Amount exceeds configured high-value threshold (runtime config).
+  - id: customer_threatens_legal
+    description: User threatens legal action or regulatory complaint.
+  - id: vip_customer
+    description: Customer is flagged as VIP in CRM/segmentation (runtime context).
+  - id: legal_question
+    description: Customer or agent requests legal advice/interpretation beyond policy text.
+  - id: aml_flag
+    description: AML-related flag/hold is present (runtime/compliance systems).
+  - id: suspicious_documents
+    description: Submitted identity/KYC documents appear suspicious or inconsistent.
+  - id: regulatory_hold
+    description: Account/transaction has a regulatory hold/restriction applied.
+  - id: regulatory_risk
+    description: Situation indicates heightened regulatory risk; requires compliance review.
+  - id: regulatory_violation_risk
+    description: Proposed action may violate regulation or internal compliance policy.
+  - id: missing_required_kyc
+    description: Required KYC level/status is missing for the proposed action.
+  - id: kyc_blocked
+    description: Onboarding is blocked due to KYC status or verification failure.
+  - id: repeated_failures
+    description: Repeated attempts failed (e.g., onboarding/verification) beyond retry policy.
+  - id: unresolved_after_n_attempts
+    description: Issue remains unresolved after configured follow-up attempts.
+  - id: sla_breached
+    description: Ticket or transaction exceeded SLA thresholds (runtime computed).
+  - id: policy_missing_or_conflicting
+    description: Knowledge/policy sources do not clearly answer, or policies conflict.
+  - id: system_state_conflict_detected
+    description: Conflicting system states/agent outputs detected (e.g., success vs failed).
+  - id: workflow_retries_exhausted
+    description: Workflow repeatedly failed/timeouts reached retry limit.
+  - id: suspected_account_takeover
+    description: Signals suggest account takeover risk (runtime/fraud signals).
+  - id: account_takeover_suspected
+    description: Alias of suspected_account_takeover (legacy condition id).
+  - id: suspected_fraud_or_abuse
+    description: Signals suggest fraud, abuse, or intentional evasion patterns.
+  - id: large_loss_reported
+    description: Customer reports large monetary loss; requires priority fraud/compliance review.
+  - id: customer_hardship
+    description: Customer reports vulnerability/hardship requiring special handling or human review.
+  - id: dispute_raised
+    description: Customer raises a dispute (refund/chargeback/unauthorized charge) requiring routing.
+  - id: high_outstanding_amount
+    description: Outstanding balance exceeds configured high-amount threshold (runtime config).
+  - id: repeated_missed_payments
+    description: Multiple missed payments beyond policy thresholds.
+  - id: repeated_policy_violations
+    description: Same policy violation repeatedly triggered by user or process.
+  - id: sensitive_data_detected
+    description: Sensitive data appears in free text/logs and must be redacted/blocked.
+  - id: unverified_profile_change_request
+    description: Profile change requested without required verification proof.

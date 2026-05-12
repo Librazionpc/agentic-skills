@@ -1,0 +1,9 @@
+tools:
+  - customer_profile_update
+  - interaction_log_write
+  - customer_tag_update
+  - customer_history_fetch
+  - segmentation_update
+  - crm_sync
+  - crm_upsert_note
+  - crm_tag_customer

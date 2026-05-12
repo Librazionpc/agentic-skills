@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "name": "liveness_detection",
+  "description": "Read-only liveness/anti-spoofing result for selfie capture. Returns customer-safe outcome only.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["selfie_ref"],
+    "properties": {
+      "selfie_ref": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["result"],
+    "properties": {
+      "result": { "type": "string", "enum": ["pass", "fail", "review"] },
+      "reasons": { "type": "array", "items": { "type": "string" } }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

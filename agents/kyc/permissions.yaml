@@ -1,0 +1,5 @@
+permissions:
+  - kyc.read
+  - kyc.write
+  - ticket.comment
+

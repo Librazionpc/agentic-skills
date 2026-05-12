@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "name": "sanction_list_check",
+  "description": "Read-only sanctions/blacklist screening result for onboarding. Returns customer-safe allow/review/block outcome.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id"],
+    "properties": {
+      "customer_id": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["result"],
+    "properties": {
+      "result": { "type": "string", "enum": ["allow", "review", "block"] },
+      "notes": { "type": "string" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

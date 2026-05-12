@@ -1,0 +1,7 @@
+rules:
+  - condition: suspicious_documents
+    action: escalate_to_fraud
+  - condition: regulatory_hold
+    action: route_to_compliance
+  - condition: missing_required_kyc
+    action: block_sensitive_actions_and_route

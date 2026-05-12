@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "name": "classify_complaint",
+  "description": "Classify a complaint into a taxonomy category and severity. Pure classification; no actions executed.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["message"],
+    "properties": {
+      "message": { "type": "string", "minLength": 1 },
+      "context": { "type": "object" }
+    },
+    "additionalProperties": true
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["category", "severity"],
+    "properties": {
+      "category": { "type": "string" },
+      "severity": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+      "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "RATE_LIMITED"]
+}
+

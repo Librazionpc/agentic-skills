@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "name": "account_restriction_apply",
+  "description": "Controlled-write request to apply a collections-related account restriction (policy enforced at runtime).",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "restriction_type", "reason"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "restriction_type": { "type": "string", "enum": ["limited_transfers", "limited_withdrawals", "collections_hold"] },
+      "reason": { "type": "string", "minLength": 3 }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": {
+      "ok": { "type": "boolean" },
+      "request_id": { "type": "string" },
+      "status": { "type": "string", "enum": ["submitted", "queued_for_review", "applied"] }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "CONFLICT"]
+}
+

@@ -1,0 +1,8 @@
+name: customer_profile_update_workflow
+steps:
+  - validate_update_request
+  - verify_change_is_allowed_and_verified
+  - customer_profile_update
+  - interaction_log_write
+  - crm_sync_if_configured
+

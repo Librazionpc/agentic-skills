@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "name": "policy_validation",
+  "description": "Validate a proposed action against internal policy (limits, approvals, restrictions). Returns allow/block/review.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["action"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "action": { "type": "string" },
+      "context": { "type": "object" }
+    },
+    "additionalProperties": true
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["result"],
+    "properties": {
+      "result": { "type": "string", "enum": ["allow", "review", "block"] },
+      "required_approvals": { "type": "array", "items": { "type": "string" } },
+      "reasons": { "type": "array", "items": { "type": "string" } }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN"]
+}
+

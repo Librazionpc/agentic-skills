@@ -1,0 +1,5 @@
+name: ticketing_agent
+owner: support_ops
+priority: high
+channels: [web, whatsapp, telegram]
+tags: [ticketing, sla, routing]

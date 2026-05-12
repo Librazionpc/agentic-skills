@@ -1,0 +1,5 @@
+name: escalation_agent
+owner: support_ops
+priority: critical
+channels: [internal]
+tags: [escalation, vip, complaints]

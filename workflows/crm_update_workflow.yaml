@@ -1,0 +1,8 @@
+name: crm_update_workflow
+steps:
+  - validate_update_payload
+  - redact_sensitive_data_if_present
+  - write_structured_crm_note
+  - apply_tags_and_categories
+  - confirm_update_logged
+

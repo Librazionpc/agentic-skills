@@ -1,0 +1,8 @@
+name: fraud_review_workflow
+steps:
+  - gather_indicators
+  - contain_risk_if_allowed
+  - open_fraud_case
+  - escalate_to_human_if_needed
+  - provide_customer_safety_guidance
+

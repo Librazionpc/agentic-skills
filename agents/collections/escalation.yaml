@@ -1,0 +1,13 @@
+rules:
+  - condition: customer_hardship
+    action: human_review
+  - condition: dispute_raised
+    action: route_to_billing
+  - condition: repeated_missed_payments
+    action: escalate_to_escalation_agent
+  - condition: high_outstanding_amount
+    action: human_review
+  - condition: suspected_fraud_or_abuse
+    action: escalate_to_fraud
+  - condition: regulatory_risk
+    action: route_to_compliance

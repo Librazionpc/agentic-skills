@@ -1,0 +1,4 @@
+permissions:
+  - ticket.write
+  - comms.send
+

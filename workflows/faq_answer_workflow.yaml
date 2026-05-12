@@ -1,0 +1,7 @@
+name: faq_answer_workflow
+steps:
+  - retrieve_relevant_sources
+  - answer_concisely_with_steps
+  - ask_clarifying_question_if_needed
+  - route_to_domain_agent_if_action_required
+

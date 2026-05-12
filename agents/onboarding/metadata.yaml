@@ -1,0 +1,5 @@
+name: onboarding_agent
+owner: growth_ops
+priority: high
+channels: [web, whatsapp, telegram]
+tags: [onboarding, signup, activation]

@@ -1,0 +1,40 @@
+version: 1
+keys:
+  t_acknowledge:
+    english: "I understand you’re checking what happened with this transaction — I’ll help you confirm the exact status."
+  t_status_label:
+    english: "Status"
+  t_datetime_label:
+    english: "Date/time"
+  t_channel_label:
+    english: "Channel"
+  t_expected_window_sentence:
+    english: "Most {{service_type}} transactions complete within {{expected_window}}. If it goes beyond {{escalation_threshold}}, I can log and escalate it for manual review."
+  t_offer_complaint:
+    english: "If this still doesn’t look right, I can open a complaint ticket for a deeper review and keep you updated."
+  t_need_transaction_id:
+    english: "Please share your transaction ID so I can check it. If you can’t find it, send a screenshot of the transaction details (please hide/cover any sensitive info)."
+  t_thanks_logged:
+    english: "Thanks — I’ve logged your complaint so it can be reviewed properly."
+  t_ticket_id_label:
+    english: "Ticket ID"
+  t_transaction_ref_label:
+    english: "Transaction reference"
+  t_category_label:
+    english: "Category"
+  t_what_happens_next:
+    english: "What happens next:"
+  t_next_step_review_status:
+    english: "We’ll review the transaction status and any provider trace results."
+  t_next_step_approval_process:
+    english: "If a refund/reversal/chargeback is needed, it will go through the required approval process."
+  t_update_promise:
+    english: "I’ll update you here as soon as there’s progress."
+  t_faq_acknowledge:
+    english: "Thanks for your question — here’s what I found."
+  t_faq_answer_title:
+    english: "Answer"
+  t_faq_next_steps_title:
+    english: "Next steps"
+  t_faq_source_note:
+    english: "If you share a bit more detail about what you’re trying to do (and where you got stuck), I’ll tailor the steps."

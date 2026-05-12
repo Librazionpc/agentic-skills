@@ -1,0 +1,5 @@
+rules:
+  - condition: unresolved_after_n_attempts
+    action: escalate_to_escalation_agent
+  - condition: sla_breached
+    action: escalate_to_escalation_agent

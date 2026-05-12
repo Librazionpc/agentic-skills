@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "name": "customer_history_fetch",
+  "description": "Read-only fetch of customer timeline/history for context enrichment. Returns customer-safe fields only.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "limit": { "type": "integer", "minimum": 1, "maximum": 200, "default": 50 },
+      "cursor": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["items"],
+    "properties": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["at", "type", "summary"],
+          "properties": {
+            "at": { "type": "string", "format": "date-time" },
+            "type": { "type": "string" },
+            "summary": { "type": "string" }
+          },
+          "additionalProperties": true
+        }
+      },
+      "next_cursor": { "type": "string" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

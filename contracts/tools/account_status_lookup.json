@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "name": "account_status_lookup",
+  "description": "Read-only lookup of onboarding/account activation state. Customer-safe fields only.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id"],
+    "properties": {
+      "customer_id": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "status"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "status": { "type": "string", "enum": ["active", "pending_activation", "blocked", "disabled", "unknown"] },
+      "blocking_reason": { "type": "string" },
+      "last_updated_at": { "type": "string", "format": "date-time" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "NOT_FOUND", "FORBIDDEN"]
+}
+

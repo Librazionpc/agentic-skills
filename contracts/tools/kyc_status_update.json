@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "name": "kyc_status_update",
+  "description": "Controlled-write update of KYC status outcome (approved/rejected/manual_review). Policy enforced at runtime.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "status"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "status": { "type": "string", "enum": ["approved", "rejected", "manual_review"] },
+      "reason": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": { "ok": { "type": "boolean" } },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "CONFLICT"]
+}
+

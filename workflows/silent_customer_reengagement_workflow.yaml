@@ -1,0 +1,8 @@
+name: silent_customer_reengagement_workflow
+steps:
+  - ticket_status_check
+  - sla_timer_check
+  - send_notification_checkin
+  - reminder_schedule_create_final_checkin
+  - if_no_response_mark_stale_and_route_for_review
+

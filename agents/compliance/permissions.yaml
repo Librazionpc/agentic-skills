@@ -1,0 +1,5 @@
+permissions:
+  - compliance.read
+  - compliance.write
+  - ticket.comment
+

@@ -1,0 +1,13 @@
+rules:
+  - condition: customer_threatens_legal
+    action: route_to_legal_human
+  - condition: vip_customer
+    action: priority_queue
+  - condition: suspected_fraud_or_abuse
+    action: escalate_to_fraud
+  - condition: regulatory_violation_risk
+    action: route_to_compliance
+  - condition: system_state_conflict_detected
+    action: stop_automation_and_human_review
+  - condition: workflow_retries_exhausted
+    action: escalate_to_ops_human

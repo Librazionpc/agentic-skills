@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "name": "sla_timer_check",
+  "description": "Read-only SLA timer evaluation for a ticket/workflow (near breach / breached).",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ticket_id"],
+    "properties": {
+      "ticket_id": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ticket_id", "status"],
+    "properties": {
+      "ticket_id": { "type": "string" },
+      "status": { "type": "string", "enum": ["ok", "near_breach", "breached"] },
+      "sla_due_at": { "type": "string", "format": "date-time" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "NOT_FOUND", "FORBIDDEN"]
+}
+

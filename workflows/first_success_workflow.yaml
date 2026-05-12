@@ -1,0 +1,7 @@
+name: first_success_workflow
+steps:
+  - explain_first_success_options
+  - track_completion_if_done
+  - first_action_track
+  - crm_update
+

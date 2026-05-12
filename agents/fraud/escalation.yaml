@@ -1,0 +1,9 @@
+rules:
+  - condition: account_takeover_suspected
+    action: immediate_human_escalation
+  - condition: large_loss_reported
+    action: priority_queue
+  - condition: suspected_fraud_or_abuse
+    action: escalate_to_escalation_agent
+  - condition: regulatory_violation_risk
+    action: route_to_compliance

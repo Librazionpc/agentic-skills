@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "name": "kyc_verification_status",
+  "description": "Read-only KYC verification status used for compliance gating (customer-safe; no full identity numbers).",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id"],
+    "properties": {
+      "customer_id": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "status"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "status": { "type": "string", "enum": ["verified", "pending", "failed", "not_started", "restricted"] },
+      "level": { "type": "string" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "NOT_FOUND", "FORBIDDEN"]
+}
+

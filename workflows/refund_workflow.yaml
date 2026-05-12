@@ -1,0 +1,7 @@
+name: refund_workflow
+steps:
+  - verify_transaction
+  - check_reversal_status
+  - determine_eligibility
+  - request_refund_approval
+  - notify_customer

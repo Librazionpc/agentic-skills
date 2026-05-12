@@ -1,0 +1,8 @@
+name: repayment_reminder_workflow
+steps:
+  - confirm_due_amount
+  - select_approved_template
+  - send_message
+  - log_contact_attempt
+  - schedule_next_followup
+

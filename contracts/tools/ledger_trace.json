@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "name": "ledger_trace",
+  "description": "Read-only trace of internal settlement/reconciliation state for a transaction. Must return customer-safe fields only (no ledger IDs).",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id"],
+    "properties": {
+      "transaction_id": { "type": "string", "minLength": 3 }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id", "settlement_state"],
+    "properties": {
+      "transaction_id": { "type": "string" },
+      "settlement_state": { "type": "string", "enum": ["not_applicable", "pending", "settled", "reversed", "unknown"] },
+      "notes": { "type": "string" },
+      "last_updated_at": { "type": "string", "format": "date-time" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "NOT_FOUND", "FORBIDDEN"]
+}
+

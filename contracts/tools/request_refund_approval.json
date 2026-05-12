@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "name": "request_refund_approval",
+  "description": "Creates a refund request for human/policy approval (HITL). Does not execute a refund.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "transaction_id", "reason"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "transaction_id": { "type": "string" },
+      "reason": { "type": "string", "minLength": 3 },
+      "amount": { "type": "number", "minimum": 0 },
+      "currency": { "type": "string", "minLength": 3, "maxLength": 3 }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["request_id", "status"],
+    "properties": {
+      "request_id": { "type": "string" },
+      "status": { "type": "string", "enum": ["submitted", "queued_for_review"] }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "CONFLICT", "RATE_LIMITED"]
+}
+

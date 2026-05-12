@@ -1,0 +1,6 @@
+sources:
+- collections_policy
+- hardship_process
+- repayment_templates
+top_k: 5
+reranking: true

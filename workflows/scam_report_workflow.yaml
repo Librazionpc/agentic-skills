@@ -1,0 +1,9 @@
+name: scam_report_workflow
+steps:
+  - collect_scam_report_details
+  - transaction_lookup_if_available
+  - risk_score_calculate
+  - fraud_case_create
+  - route_to_recovery_or_human_review
+  - provide_customer_safety_guidance
+

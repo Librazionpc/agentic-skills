@@ -1,0 +1,7 @@
+name: chargeback_workflow
+steps:
+  - verify_transaction
+  - capture_dispute_reason
+  - check_eligibility
+  - submit_dispute_or_request_refund_approval
+  - notify_customer

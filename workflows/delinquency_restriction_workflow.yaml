@@ -1,0 +1,8 @@
+name: delinquency_restriction_workflow
+steps:
+  - debt_status_check
+  - determine_restriction_eligibility_per_policy
+  - account_restriction_apply_if_allowed
+  - crm_update_with_delinquency_status
+  - notify_customer_of_next_steps
+

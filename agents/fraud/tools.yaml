@@ -1,0 +1,11 @@
+tools:
+  - risk_score_calculate
+  - device_fingerprint_check
+  - behavior_analysis_query
+  - pattern_monitor_query
+  - fraud_alarm_raise
+  - transaction_flag
+  - account_freeze
+  - fraud_case_create
+  - transaction_lookup
+  - account_security_actions

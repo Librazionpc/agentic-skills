@@ -1,0 +1,11 @@
+tools:
+  - get_transaction_status
+  - search_transactions
+  - request_refund_approval
+  - payment_status_check
+  - ledger_trace
+  - fee_breakdown
+  - create_complaint_ticket
+  - append_complaint_note
+  - classify_complaint
+  - suggest_resolution

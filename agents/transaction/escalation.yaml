@@ -1,0 +1,13 @@
+rules:
+  - condition: fraud_suspected
+    action: escalate_to_fraud
+  - condition: duplicate_debit
+    action: route_to_billing
+  - condition: customer_requests_refund_or_reversal
+    action: create_complaint_and_route_for_human_approval
+  - condition: high_value_transaction
+    action: human_review
+  - condition: customer_threatens_legal
+    action: escalate_to_escalation_agent
+  - condition: pending_exceeds_sla_threshold
+    action: create_complaint_and_flag_manual_review

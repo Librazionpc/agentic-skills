@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "name": "identity_lookup",
+  "description": "Read-only identity database lookup (BVN/NIN or local equivalent). Must accept masked identifiers or secure references; never raw full identifiers in chat context.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "customer_id": { "type": "string" },
+      "identifier_ref": { "type": "string", "description": "Secure reference to identity input stored outside chat." }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["match_status"],
+    "properties": {
+      "match_status": { "type": "string", "enum": ["matched", "mismatch", "not_found", "review"] },
+      "notes": { "type": "string" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

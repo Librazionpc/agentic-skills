@@ -1,0 +1,9 @@
+name: faq_deflection_workflow
+steps:
+  - detect_question_intent
+  - rag_search
+  - draft_answer_with_steps
+  - check_if_action_required
+  - if_action_required_route_to_domain_agent
+  - else_respond_and_close
+

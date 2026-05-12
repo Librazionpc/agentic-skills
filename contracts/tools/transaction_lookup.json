@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "name": "transaction_lookup",
+  "description": "Read-only transaction lookup (legacy alias of get_transaction_status). Returns masked/sanitized fields only.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id"],
+    "properties": {
+      "transaction_id": { "type": "string", "minLength": 3 },
+      "customer_id": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id", "status"],
+    "properties": {
+      "transaction_id": { "type": "string" },
+      "status": { "type": "string" },
+      "amount": { "type": "number" },
+      "currency": { "type": "string" },
+      "created_at": { "type": "string", "format": "date-time" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "NOT_FOUND", "FORBIDDEN"]
+}
+

@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "name": "escalation_log_create",
+  "description": "Controlled-write creation of an internal escalation log entry for audit and ops tracking.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "summary"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "ticket_id": { "type": "string" },
+      "level": { "type": "integer", "minimum": 0, "maximum": 3 },
+      "summary": { "type": "string", "minLength": 1 },
+      "signals": { "type": "array", "items": { "type": "string" } }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["log_id"],
+    "properties": { "log_id": { "type": "string" } },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED"]
+}
+

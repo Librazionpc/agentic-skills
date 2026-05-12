@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "name": "risk_assessment_check",
+  "description": "Read-only risk assessment for a proposed action. Returns customer-safe decisioning fields only (no raw risk score disclosure).",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "action"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "action": { "type": "string" },
+      "context": { "type": "object" }
+    },
+    "additionalProperties": true
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["result"],
+    "properties": {
+      "result": { "type": "string", "enum": ["allow", "review", "block"] },
+      "reasons": { "type": "array", "items": { "type": "string" } }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "name": "suggest_resolution",
+  "description": "Suggest next best actions and customer messaging based on verified status + policies. Does not execute financial actions.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["status", "service_type"],
+    "properties": {
+      "status": { "type": "string" },
+      "service_type": { "type": "string" },
+      "details": { "type": "object" }
+    },
+    "additionalProperties": true
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["next_steps"],
+    "properties": {
+      "next_steps": { "type": "array", "items": { "type": "string" } },
+      "escalate": { "type": "boolean" },
+      "suggested_template": { "type": "string" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT"]
+}
+

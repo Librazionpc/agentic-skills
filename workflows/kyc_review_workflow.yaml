@@ -1,0 +1,8 @@
+name: kyc_review_workflow
+steps:
+  - lookup_kyc_status
+  - identify_failure_reason
+  - provide_resubmission_instructions
+  - submit_resubmission_request_if_allowed
+  - update_ticket_notes
+

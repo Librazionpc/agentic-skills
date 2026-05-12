@@ -1,0 +1,6 @@
+sources:
+- issue_taxonomy
+- sla_policies
+- ticketing_sop
+top_k: 5
+reranking: true

@@ -1,0 +1,5 @@
+name: transaction_agent
+owner: payments_ops
+priority: high
+channels: [web, whatsapp, telegram]
+tags: [transfers, pending, settlement]

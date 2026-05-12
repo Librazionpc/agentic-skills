@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "name": "payment_status_check",
+  "description": "Read-only status check against payment provider/gateway for a transaction. Sanitized; no internal IDs.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id"],
+    "properties": {
+      "transaction_id": { "type": "string", "minLength": 3 }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id", "provider_status"],
+    "properties": {
+      "transaction_id": { "type": "string" },
+      "provider_status": { "type": "string" },
+      "provider_message": { "type": "string" },
+      "last_updated_at": { "type": "string", "format": "date-time" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "NOT_FOUND", "FORBIDDEN", "UPSTREAM_TIMEOUT", "UPSTREAM_UNAVAILABLE"]
+}
+

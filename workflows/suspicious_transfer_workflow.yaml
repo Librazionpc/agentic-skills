@@ -1,0 +1,10 @@
+name: suspicious_transfer_workflow
+steps:
+  - risk_score_calculate
+  - behavior_analysis_query
+  - device_fingerprint_check
+  - transaction_flag_if_needed
+  - account_freeze_if_policy_allows
+  - fraud_case_create
+  - escalate_to_escalation_agent_if_high_risk
+

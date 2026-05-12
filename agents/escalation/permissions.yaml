@@ -1,0 +1,5 @@
+permissions:
+  - ticket.escalate
+  - ticket.comment
+  - incident.read
+

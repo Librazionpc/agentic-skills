@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "name": "incident_report_generate",
+  "description": "Generate an internal incident/escalation report for ops review. Not customer-facing.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["report_type"],
+    "properties": {
+      "report_type": { "type": "string", "enum": ["escalation_summary", "incident_summary", "conflict_report"] },
+      "ticket_id": { "type": "string" },
+      "customer_id": { "type": "string" },
+      "summary": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["report_id", "status"],
+    "properties": {
+      "report_id": { "type": "string" },
+      "status": { "type": "string", "enum": ["queued", "generated"] }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED", "UPSTREAM_UNAVAILABLE"]
+}
+

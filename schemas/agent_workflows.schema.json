@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AgentWorkflowsList",
+  "type": "object",
+  "required": ["workflows"],
+  "properties": {
+    "workflows": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": true
+}
+

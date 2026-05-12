@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "name": "customer_profile_update",
+  "description": "Controlled-write update of customer profile fields. Runtime must enforce verification and field allowlists.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "update"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "update": { "type": "object" },
+      "verification_ref": { "type": "string", "description": "Optional verification proof reference, if required by runtime." }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": {
+      "ok": { "type": "boolean" },
+      "updated_fields": { "type": "array", "items": { "type": "string" } }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "CONFLICT", "RATE_LIMITED"]
+}
+

@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=../../schemas/agent_workflows.schema.json
+workflows:
+  - transaction_inquiry_workflow
+  - failed_transfer_workflow
+  - pending_transfer_workflow
+  - reconciliation_check_workflow

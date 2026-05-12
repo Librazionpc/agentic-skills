@@ -1,0 +1,9 @@
+tools:
+  - account_status_lookup
+  - onboarding_resend_link
+  - user_profile_create
+  - onboarding_step_update
+  - activation_status_check
+  - first_action_track
+  - crm_update
+  - notification_send

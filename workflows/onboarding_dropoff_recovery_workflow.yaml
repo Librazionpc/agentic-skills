@@ -1,0 +1,7 @@
+name: onboarding_dropoff_recovery_workflow
+steps:
+  - activation_status_check
+  - detect_dropoff_stage
+  - notification_send
+  - schedule_followup_if_needed
+

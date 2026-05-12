@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "name": "transaction_status_check",
+  "description": "Read-only status check for a transaction across internal state (customer-safe). Similar to get_transaction_status but focused on state transitions.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id"],
+    "properties": {
+      "transaction_id": { "type": "string", "minLength": 3 }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["transaction_id", "status", "last_updated_at"],
+    "properties": {
+      "transaction_id": { "type": "string" },
+      "status": { "type": "string", "enum": ["SUCCESS", "PENDING", "FAILED", "REFUNDED"] },
+      "stage": { "type": "string" },
+      "reason_code": { "type": "string" },
+      "reason_message": { "type": "string" },
+      "last_updated_at": { "type": "string", "format": "date-time" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "NOT_FOUND", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

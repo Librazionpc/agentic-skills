@@ -1,0 +1,10 @@
+tools:
+  - compliance_case_create
+  - restriction_lookup
+  - risk_assessment_check
+  - kyc_verification_status
+  - transaction_audit_log
+  - policy_validation
+  - user_risk_profile_update
+  - compliance_report_generate
+  - regulatory_web_check

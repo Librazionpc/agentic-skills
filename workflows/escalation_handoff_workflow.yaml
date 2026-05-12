@@ -1,0 +1,10 @@
+name: escalation_handoff_workflow
+steps:
+  - detect_escalation_trigger
+  - stop_automation_chain
+  - escalation_log_create
+  - create_human_ticket
+  - assign_support_queue
+  - priority_ticket_update
+  - notify_team_slack_if_configured
+

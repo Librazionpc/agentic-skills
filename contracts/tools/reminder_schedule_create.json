@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "name": "reminder_schedule_create",
+  "description": "Controlled-write creation of a follow-up schedule/reminder for a ticket/workflow.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ticket_id", "at", "type"],
+    "properties": {
+      "ticket_id": { "type": "string" },
+      "at": { "type": "string", "format": "date-time" },
+      "type": { "type": "string", "enum": ["customer_checkin", "status_update", "sla_warning", "final_checkin"] },
+      "metadata": { "type": "object" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["schedule_id", "ok"],
+    "properties": {
+      "schedule_id": { "type": "string" },
+      "ok": { "type": "boolean" }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "RATE_LIMITED"]
+}
+

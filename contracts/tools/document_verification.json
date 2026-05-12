@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "name": "document_verification",
+  "description": "Read-only verification of identity document authenticity and quality. Returns customer-safe result flags only.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["document_ref", "document_type"],
+    "properties": {
+      "document_ref": { "type": "string", "description": "Reference/handle to stored document image, not raw image bytes." },
+      "document_type": { "type": "string" },
+      "country": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["result"],
+    "properties": {
+      "result": { "type": "string", "enum": ["pass", "fail", "review"] },
+      "quality": { "type": "string", "enum": ["good", "blurry", "partial", "unreadable"] },
+      "reasons": { "type": "array", "items": { "type": "string" } }
+    },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "UPSTREAM_UNAVAILABLE"]
+}
+

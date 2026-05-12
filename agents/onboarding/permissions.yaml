@@ -1,0 +1,5 @@
+permissions:
+  - onboarding.read
+  - onboarding.write
+  - ticket.create
+

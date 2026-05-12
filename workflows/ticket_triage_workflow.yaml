@@ -1,0 +1,8 @@
+name: ticket_triage_workflow
+steps:
+  - classify_issue
+  - collect_required_context
+  - assign_owner_agent_or_team
+  - set_priority_and_sla
+  - confirm_next_update_time
+

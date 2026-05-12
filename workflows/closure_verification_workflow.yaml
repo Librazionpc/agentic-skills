@@ -1,0 +1,8 @@
+name: closure_verification_workflow
+steps:
+  - ticket_status_check
+  - send_notification_resolution_check
+  - record_customer_response
+  - if_confirmed_then_update_ticket_and_crm
+  - else_route_back_to_owner_agent
+

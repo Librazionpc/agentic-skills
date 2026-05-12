@@ -1,0 +1,9 @@
+version: 1
+rules:
+  - id: status_settlement_mismatch
+    description: "Internal status indicates success but settlement is not confirmed."
+    action_hint: "run settlement_status_query + ledger_reconciliation_check; escalate to ops/human if inconsistent"
+  - id: debit_without_credit
+    description: "Debit recorded but beneficiary confirmation missing beyond SLA window."
+    action_hint: "run bank_confirmation_check; if still unknown, route to billing/escalation per policy"
+

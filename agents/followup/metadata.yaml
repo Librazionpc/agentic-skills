@@ -1,0 +1,5 @@
+name: followup_agent
+owner: support_ops
+priority: medium
+channels: [web, whatsapp, telegram]
+tags: [followup, sla]

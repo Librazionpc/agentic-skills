@@ -1,0 +1,8 @@
+name: aml_review_workflow
+steps:
+  - collect_case_context
+  - check_restriction_or_flag_status
+  - document_required_evidence
+  - create_compliance_case
+  - route_for_human_review
+

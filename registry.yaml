@@ -1,0 +1,27 @@
+version: 1
+agents:
+  billing:
+    path: agents/billing
+  onboarding:
+    path: agents/onboarding
+  escalation:
+    path: agents/escalation
+  kyc:
+    path: agents/kyc
+  fraud:
+    path: agents/fraud
+  transaction:
+    path: agents/transaction
+  ticketing:
+    path: agents/ticketing
+  compliance:
+    path: agents/compliance
+  followup:
+    path: agents/followup
+  collections:
+    path: agents/collections
+  faq:
+    path: agents/faq
+  crm:
+    path: agents/crm
+

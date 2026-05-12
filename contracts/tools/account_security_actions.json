@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "name": "account_security_actions",
+  "description": "Controlled-write security containment actions (e.g., force logout, temporary lock) under policy/human approval rules.",
+  "request_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["customer_id", "action"],
+    "properties": {
+      "customer_id": { "type": "string" },
+      "action": { "type": "string", "enum": ["force_logout", "temporary_lock", "reset_sessions"] },
+      "reason": { "type": "string" }
+    },
+    "additionalProperties": false
+  },
+  "response_schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": ["ok"],
+    "properties": { "ok": { "type": "boolean" } },
+    "additionalProperties": true
+  },
+  "errors": ["INVALID_INPUT", "FORBIDDEN", "CONFLICT", "RATE_LIMITED"]
+}
+

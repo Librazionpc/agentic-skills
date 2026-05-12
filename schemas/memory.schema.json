@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MemoryRules",
+  "type": "object",
+  "properties": {
+    "memory": {
+      "type": "object",
+      "properties": {
+        "short_term": {
+          "type": "object",
+          "properties": { "enabled": { "type": "boolean" } },
+          "additionalProperties": true
+        },
+        "customer_history": {
+          "type": "object",
+          "properties": { "enabled": { "type": "boolean" } },
+          "additionalProperties": true
+        },
+        "pii_access": {
+          "type": "object",
+          "properties": { "masked": { "type": "boolean" } },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
+

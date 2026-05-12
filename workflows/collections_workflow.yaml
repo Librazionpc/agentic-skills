@@ -1,0 +1,8 @@
+name: collections_workflow
+steps:
+  - lookup_loan_status
+  - confirm_amount_and_due_dates
+  - send_compliant_reminder
+  - offer_approved_payment_plan_route
+  - escalate_hardship_or_dispute
+

@@ -1,0 +1,6 @@
+sources:
+- escalation_playbook
+- legal_threat_process
+- outage_comms_guidelines
+top_k: 5
+reranking: true
