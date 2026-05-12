@@ -1,0 +1,21 @@
+# Fill this before live execution.
+# left: declarative tool in agentic-skills
+# right: concrete MCP/tool endpoint in your runtime
+
+transaction_lookup: ""
+transaction_status_check: ""
+transaction_trace: ""
+settlement_status_query: ""
+bank_confirmation_check: ""
+ledger_reconciliation_check: ""
+search_transactions: ""
+
+kyc_lookup: ""
+kyc_case_update: ""
+fraud_case_lookup: ""
+fraud_flag_account: ""
+crm_create_ticket: ""
+crm_add_note: ""
+collections_schedule_followup: ""
+
+# Add the rest as needed from each agents/*/tools.yaml
