@@ -1,5 +1,4 @@
 priorities:
-  critical: [fraud, compliance, escalation]
+  critical: [orchestrator, fraud, compliance, escalation]
   high: [billing, transaction, onboarding, kyc, ticketing, collections]
   medium: [followup, faq, crm]
-

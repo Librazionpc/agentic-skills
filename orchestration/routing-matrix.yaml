@@ -1,0 +1,71 @@
+version: 1
+
+# Primary + optional secondary specialist dispatch for orchestrator.
+# Only orchestrator sends customer-facing text.
+
+routes:
+  pending_transfer:
+    primary: transaction
+    secondary: [billing]
+    risk_default: medium
+  failed_transfer:
+    primary: transaction
+    secondary: [billing]
+    risk_default: high
+  duplicate_debit:
+    primary: billing
+    secondary: [transaction]
+    risk_default: high
+  refund:
+    primary: billing
+    secondary: [ticketing]
+    risk_default: medium
+  chargeback:
+    primary: billing
+    secondary: [compliance]
+    risk_default: high
+  suspicious_activity:
+    primary: fraud
+    secondary: [compliance]
+    risk_default: critical
+  account_compromised:
+    primary: fraud
+    secondary: [kyc, compliance]
+    risk_default: critical
+  kyc_failed:
+    primary: kyc
+    secondary: [compliance]
+    risk_default: high
+  regulatory_restriction:
+    primary: compliance
+    secondary: [kyc]
+    risk_default: critical
+  ticket_management:
+    primary: ticketing
+    secondary: [followup]
+    risk_default: low
+  sla_followup:
+    primary: followup
+    secondary: [ticketing]
+    risk_default: medium
+  overdue_payment:
+    primary: collections
+    secondary: [crm]
+    risk_default: medium
+  general_faq:
+    primary: faq
+    secondary: []
+    risk_default: low
+  crm_update:
+    primary: crm
+    secondary: [followup]
+    risk_default: low
+
+risk_overrides:
+  amount_threshold_high_risk: 1000
+  amount_threshold_critical: 5000
+  repeated_failed_attempts_critical: 3
+  hard_escalation_intents:
+    - suspicious_activity
+    - account_compromised
+    - regulatory_restriction

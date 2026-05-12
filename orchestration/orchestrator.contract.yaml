@@ -1,0 +1,90 @@
+version: 1
+name: redtech-fintech-orchestrator-contract
+
+principles:
+  - only_orchestrator_can_reply_to_customer
+  - specialist_agents_return_structured_output_only
+  - enforce_policy_and_risk_gates_before_final_reply
+
+request_envelope:
+  required:
+    - request_id
+    - customer_id
+    - channel
+    - locale
+    - message
+    - received_at
+  fields:
+    request_id: string
+    customer_id: string
+    channel: string
+    locale: string
+    message: string
+    received_at: datetime
+    attachments: array
+    metadata: object
+
+orchestrator_decision:
+  required:
+    - intent
+    - risk_level
+    - primary_agent
+    - secondary_agents
+    - reason
+  fields:
+    intent: string
+    risk_level: [low, medium, high, critical]
+    primary_agent: string
+    secondary_agents: array
+    reason: string
+
+specialist_output_schema:
+  required:
+    - agent
+    - status
+    - evidence
+    - actions
+    - confidence
+    - escalate
+  fields:
+    agent: string
+    status: [ok, needs_more_info, blocked, error]
+    evidence:
+      type: array
+      item_schema:
+        source: string
+        value: string
+        confidence: number
+    actions:
+      type: array
+      item_schema:
+        tool: string
+        outcome: [success, failure, skipped]
+        note: string
+    confidence:
+      type: number
+      min: 0
+      max: 1
+    escalate: boolean
+    escalation_reason: string
+    user_safe_summary: string
+
+merge_policy:
+  - critical_or_high_risk_findings_override_low_risk_findings
+  - if_any_specialist_escalate_true_then_escalate
+  - if_conflicting_evidence_then_request_more_info_or_escalate
+  - never_fabricate_missing_backend_data
+
+final_response_gate:
+  required_checks:
+    - pii_redaction
+    - policy_validation
+    - escalation_conditions_evaluated
+    - customer_message_generated_by_orchestrator
+
+escalation_triggers:
+  - fraud_signal_detected
+  - compliance_hold_or_regulatory_restriction
+  - account_takeover_suspected
+  - payment_settlement_failure_beyond_sla
+  - repeated_backend_unavailable

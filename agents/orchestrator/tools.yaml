@@ -1,0 +1,10 @@
+tools:
+  - workflow_state_query
+  - policy_validation
+  - escalation_log_create
+  - ticket_escalate
+  - ticket_create
+  - ticket_update
+  - notify_team_slack
+  - send_notification
+  - send_message

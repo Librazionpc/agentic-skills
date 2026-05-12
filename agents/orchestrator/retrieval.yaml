@@ -1,0 +1,7 @@
+sources:
+  - fintech_policies
+  - escalation_playbooks
+  - sla_matrix
+  - support_runbooks
+top_k: 4
+reranking: true

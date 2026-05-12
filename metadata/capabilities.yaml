@@ -1,4 +1,8 @@
 capabilities:
+  - id: orchestration.dispatch
+    description: Route intents to specialist agents and merge structured outputs.
+  - id: orchestration.escalate
+    description: Enforce policy/risk gates and trigger escalation paths.
   - id: billing.refund
     description: Submit refund requests (policy constrained).
   - id: txn.trace
@@ -9,4 +13,3 @@ capabilities:
     description: Trigger KYC resubmission process.
   - id: ticketing.routing
     description: Create/update/assign tickets and route ownership.
-

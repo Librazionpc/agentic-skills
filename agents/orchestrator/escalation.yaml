@@ -1,0 +1,7 @@
+rules:
+  - condition: any_specialist_escalate_true
+    action: ticket_escalate
+  - condition: fraud_or_compliance_critical
+    action: immediate_human_handoff
+  - condition: backend_unavailable_on_critical_flow
+    action: create_human_ticket

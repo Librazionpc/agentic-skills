@@ -1,31 +1,30 @@
 version: 1
 routes:
   refund:
-    agent: billing
+    agent: orchestrator
   duplicate_debit:
-    agent: billing
+    agent: orchestrator
   chargeback:
-    agent: billing
+    agent: orchestrator
   failed_transfer:
-    agent: transaction
+    agent: orchestrator
   pending_transfer:
-    agent: transaction
+    agent: orchestrator
   kyc_failed:
-    agent: kyc
+    agent: orchestrator
   suspicious_activity:
-    agent: fraud
+    agent: orchestrator
   account_compromised:
-    agent: fraud
+    agent: orchestrator
   ticket_management:
-    agent: ticketing
+    agent: orchestrator
   regulatory_restriction:
-    agent: compliance
+    agent: orchestrator
   sla_followup:
-    agent: followup
+    agent: orchestrator
   overdue_payment:
-    agent: collections
+    agent: orchestrator
   general_faq:
-    agent: faq
+    agent: orchestrator
   crm_update:
-    agent: crm
-
+    agent: orchestrator

@@ -1,0 +1,5 @@
+name: orchestrator_agent
+owner: platform_ops
+priority: critical
+channels: [web, whatsapp, telegram]
+tags: [orchestrator, triage, policy, escalation]

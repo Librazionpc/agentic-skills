@@ -1,5 +1,7 @@
 version: 1
 agents:
+  orchestrator:
+    path: agents/orchestrator
   billing:
     path: agents/billing
   onboarding:
@@ -24,4 +26,3 @@ agents:
     path: agents/faq
   crm:
     path: agents/crm
-

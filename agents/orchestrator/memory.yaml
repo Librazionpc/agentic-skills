@@ -1,0 +1,7 @@
+memory:
+  short_term:
+    enabled: true
+  customer_history:
+    enabled: true
+  pii_access:
+    masked: true

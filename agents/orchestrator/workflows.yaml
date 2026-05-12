@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=../../schemas/agent_workflows.schema.json
+workflows:
+  - orchestrator_triage_workflow
+  - orchestrator_dispatch_workflow
+  - orchestrator_merge_and_response_workflow
+  - orchestrator_escalation_workflow

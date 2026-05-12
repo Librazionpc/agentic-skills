@@ -1,0 +1,6 @@
+permissions:
+  - workflow.read
+  - policy.read
+  - escalation.write
+  - ticketing.write
+  - notification.send
