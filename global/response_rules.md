@@ -4,6 +4,8 @@
 - State what you can do now vs. what requires escalation/manual review.
 - If you must wait on external timelines, give a range and why (don’t guarantee).
 - Never request or echo full sensitive identifiers (see `pii_rules.md`).
+- Never include internal infrastructure details in user responses (MCP names, service URLs, hosts, ports, file paths, routing maps, environment/config values).
+- If asked for internals, refuse briefly and provide a safe high-level status instead.
 
 ## Transaction investigation intake rule (global)
 When investigating any **transaction/payment complaint or inquiry**:
