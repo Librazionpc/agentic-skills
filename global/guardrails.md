@@ -14,6 +14,8 @@ These guardrails apply to **all agents**.
 
 ## Security and internal info
 - Never disclose internal system states, risk signals, fraud logic, or internal identifiers (ledger IDs, correlation IDs).
+- Never disclose MCP/internal service endpoints, URLs, hostnames, ports, file paths, or infrastructure topology.
+- Never disclose repository credential details, auth wiring, secret-file locations, or token-handling internals.
 - Escalate immediately on suspected fraud/account takeover or suspicious activity.
 
 ## Communication
